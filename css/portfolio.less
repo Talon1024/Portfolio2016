@@ -26,6 +26,7 @@ body {
 
 h1 {
   font-size: 3.3rem;
+  font-weight: bold;
 }
 
 .kc-banner {
@@ -64,11 +65,17 @@ h2 {
   padding-bottom: 50px;
 }
 
+.kc-mywork-master {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
 .kc-mywork-item {
   overflow: hidden;
   background-color: #4ab;
-  display: inline-block;
-  border-radius: 16px;
+  border-radius: 100px;
+  width: 200px;
   height: 200px;
   position: relative;
   .kc-layer {
@@ -84,6 +91,10 @@ h2 {
       height: 100%;
       border-radius: 16px;
       text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
     }
     &-preview {
       z-index: 1;
@@ -99,18 +110,28 @@ h2 {
       opacity: 1;
     }
   }
-  @media screen {
-    @media (min-width: 901px) {
-      width: 24%;
-    }
-    @media (min-width: 676px) and (max-width: 900px) {
-      width: 32%;
-    }
-    @media (min-width: 501px) and (max-width: 675px) {
-      width: 49%;
-    }
-    @media (max-width: 500px) {
-      width: 100%;
-    }
+}
+
+.kc-contact {
+  display: flex;
+  justify-content: center;
+  margin: .3rem;
+}
+
+.kc-contactitem {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #4ab;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: .3rem;
+  transition: background-color 0.2s ease;
+  color: #000;
+  text-decoration: none;
+  &:hover {
+    cursor: pointer;
+    background-color: darken(#4ab, 7%);
   }
 }
