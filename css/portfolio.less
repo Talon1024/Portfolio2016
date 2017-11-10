@@ -20,15 +20,6 @@ body {
   background-color: @primary-cyan;
 }
 
-.kc-title {
-  .titling();
-}
-
-h1 {
-  font-size: 3.3rem;
-  font-weight: bold;
-}
-
 .kc-banner {
   display: flex;
   justify-content: center;
@@ -56,6 +47,12 @@ hr {
   }
 }
 
+h1 {
+  .titling();
+  font-size: 3.3rem;
+  font-weight: bold;
+}
+
 h2 {
   .titling();
   font-size: 2rem;
@@ -71,6 +68,30 @@ h3 {
   height: 100px;
   padding-top: 50px;
   padding-bottom: 50px;
+}
+
+.kc-contact {
+  display: flex;
+  justify-content: center;
+  margin: .3rem;
+}
+
+.kc-contactitem {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: darken(@primary-cyan, 15%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: .3rem;
+  transition: background-color 0.2s ease;
+  color: #000;
+  text-decoration: none;
+  &:hover {
+    cursor: pointer;
+    background-color: darken(@primary-cyan, 20%);
+  }
 }
 
 .kc-mywork-master {
@@ -125,26 +146,10 @@ h3 {
   }
 }
 
-.kc-contact {
-  display: flex;
-  justify-content: center;
-  margin: .3rem;
-}
-
-.kc-contactitem {
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
-  background-color: darken(@primary-cyan, 15%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: .3rem;
-  transition: background-color 0.2s ease;
-  color: #000;
-  text-decoration: none;
-  &:hover {
-    cursor: pointer;
-    background-color: darken(@primary-cyan, 20%);
-  }
+#copyright-section {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 1rem;
 }

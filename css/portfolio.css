@@ -1,14 +1,6 @@
 body {
   background-color: #58d5d5;
 }
-.kc-title {
-  font-family: Montserrat, sans-serif;
-  text-align: center;
-}
-h1 {
-  font-size: 3.3rem;
-  font-weight: bold;
-}
 .kc-banner {
   display: flex;
   justify-content: center;
@@ -36,6 +28,12 @@ hr.kc-title-line {
   border-right: 0px;
   display: inline-block;
 }
+h1 {
+  font-family: Montserrat, sans-serif;
+  text-align: center;
+  font-size: 3.3rem;
+  font-weight: bold;
+}
 h2 {
   font-family: Montserrat, sans-serif;
   text-align: center;
@@ -50,6 +48,28 @@ h3 {
   height: 100px;
   padding-top: 50px;
   padding-bottom: 50px;
+}
+.kc-contact {
+  display: flex;
+  justify-content: center;
+  margin: .3rem;
+}
+.kc-contactitem {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #2db3b3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: .3rem;
+  transition: background-color 0.2s ease;
+  color: #000;
+  text-decoration: none;
+}
+.kc-contactitem:hover {
+  cursor: pointer;
+  background-color: #289f9f;
 }
 .kc-mywork-master {
   display: flex;
@@ -99,25 +119,10 @@ h3 {
   transition: opacity 0.5s;
   opacity: 1;
 }
-.kc-contact {
-  display: flex;
-  justify-content: center;
-  margin: .3rem;
-}
-.kc-contactitem {
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
-  background-color: #2db3b3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: .3rem;
-  transition: background-color 0.2s ease;
-  color: #000;
-  text-decoration: none;
-}
-.kc-contactitem:hover {
-  cursor: pointer;
-  background-color: #289f9f;
+#copyright-section {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 1rem;
 }
