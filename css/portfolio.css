@@ -13,6 +13,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #092525;
 }
 .kc-banner::before,
 .kc-banner::after {
@@ -20,7 +21,7 @@ h1 {
   flex-grow: 1;
   flex-shrink: 0;
   height: 4px;
-  background-color: #000;
+  background-color: #1e7676;
   margin: 1rem;
 }
 hr {
@@ -38,6 +39,12 @@ hr.kc-title-line {
 h2 {
   font-family: Montserrat, sans-serif;
   text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: .5rem;
+}
+h3 {
+  font-size: 1.5rem;
 }
 #title-section {
   height: 100px;
@@ -56,6 +63,7 @@ h2 {
   width: 200px;
   height: 200px;
   position: relative;
+  margin: 7px;
 }
 .kc-mywork-item .kc-layer {
   position: absolute;
@@ -96,7 +104,7 @@ h2 {
   width: 40px;
   height: 40px;
   border-radius: 20px;
-  background-color: #4ab;
+  background-color: #2db3b3;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -107,5 +115,5 @@ h2 {
 }
 .kc-contactitem:hover {
   cursor: pointer;
-  background-color: #3a92a1;
+  background-color: #289f9f;
 }

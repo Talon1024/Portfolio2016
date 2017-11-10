@@ -33,12 +33,13 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: darken(@primary-cyan, 50%);
   &::before, &::after {
     content: "\00A0"; // NBSP
     flex-grow: 1;
     flex-shrink: 0;
     height: 4px;
-    background-color: #000;
+    background-color: darken(@primary-cyan, 30%);
     margin: 1rem;
   }
 }
@@ -57,6 +58,13 @@ hr {
 
 h2 {
   .titling();
+  font-size: 2rem;
+  font-weight: bold;
+  margin: .5rem;
+}
+
+h3 {
+  font-size: 1.5rem;
 }
 
 #title-section {
@@ -78,6 +86,7 @@ h2 {
   width: 200px;
   height: 200px;
   position: relative;
+  margin: 7px;
   .kc-layer {
     position: absolute;
     top: 0;
@@ -122,7 +131,7 @@ h2 {
   width: 40px;
   height: 40px;
   border-radius: 20px;
-  background-color: #4ab;
+  background-color: darken(@primary-cyan, 15%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -132,6 +141,6 @@ h2 {
   text-decoration: none;
   &:hover {
     cursor: pointer;
-    background-color: darken(#4ab, 7%);
+    background-color: darken(@primary-cyan, 20%);
   }
 }
