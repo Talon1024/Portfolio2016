@@ -20,10 +20,26 @@ body {
   background-color: @primary-cyan;
 }
 
-h1.kc-title {
+.kc-title {
   .titling();
-  display: block;
-  font-size: 3.3em;
+}
+
+h1 {
+  font-size: 3.3rem;
+}
+
+.kc-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &::before, &::after {
+    content: "\00A0"; // NBSP
+    flex-grow: 1;
+    flex-shrink: 0;
+    height: 4px;
+    background-color: #000;
+    margin: 1rem;
+  }
 }
 
 hr {
