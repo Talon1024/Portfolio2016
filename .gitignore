@@ -1,0 +1,4 @@
+css/*.css
+!css/reset.css
+logs/*
+!logs/.nothing

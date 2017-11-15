@@ -21,8 +21,8 @@ document.addEventListener("readystatechange", function (e) {
     projSection.addEventListener('click', function (e) {
       if (inTransition) return;
 
-      inTransition = true;
       function getWorkItem(el) {
+        if (el == null) return;
         if (el.classList.contains("kc-mywork-item")) {
           return el;
         } else {
@@ -30,32 +30,40 @@ document.addEventListener("readystatechange", function (e) {
         }
       }
 
-      var project = getWorkItem(e.target).id.substr(7),
+      var projItem = getWorkItem(e.target),
+          project = (projItem != null) ? projItem.id.substr(7) : null,
           projDescs = projPopup.getElementsByClassName("projdesc");
 
-      Array.prototype.forEach.call(projDescs, function (el) {
-        if (el.id.substr(9) === project) {
-          el.classList.remove("noshow");
-        } else {
-          el.classList.add("noshow");
-        }
-      });
-      projPopup.classList.remove("noshow");
-      setTimeout(function () {
-        projPopup.classList.add("up");
+      if (project) {
+        inTransition = true;
+        Array.prototype.forEach.call(projDescs, function (el) {
+          if (el.id.substr(9) === project) {
+            el.classList.remove("noshow");
+          } else {
+            el.classList.add("noshow");
+          }
+        });
+        projPopup.classList.remove("noshow");
+        document.body.classList.add("inTransition");
         setTimeout(function () {
-          inTransition = false;
-        }, 1000);
-      }, 10);
+          projPopup.classList.add("up");
+          setTimeout(function () {
+            inTransition = false;
+            document.body.classList.remove("inTransition");
+          }, 1000);
+        }, 10);
+      }
     });
 
     projPopup.getElementsByClassName("exitbutton")[0].addEventListener("click", function (e) {
       if (inTransition) return;
       inTransition = true;
+      document.body.classList.add("inTransition");
       projPopup.classList.remove("up");
       setTimeout(function () {
         projPopup.classList.add("noshow");
         inTransition = false;
+        document.body.classList.remove("inTransition");
       }, 1000);
     });
   }
