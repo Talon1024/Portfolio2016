@@ -16,10 +16,10 @@ document.addEventListener("readystatechange", function (e) {
 
     var projSection = document.getElementById("work-section"),
         projPopup = document.getElementsByClassName("project-popup")[0],
-        inTransition = false; // Control transitions
+        inTransition = 0; // Control transitions
 
     projSection.addEventListener('click', function (e) {
-      if (inTransition) return;
+      if (inTransition !== 0) return;
 
       function getWorkItem(el) {
         if (el == null) return;
@@ -35,7 +35,7 @@ document.addEventListener("readystatechange", function (e) {
           projDescs = projPopup.getElementsByClassName("projdesc");
 
       if (project) {
-        inTransition = true;
+        inTransition = 1;
         Array.prototype.forEach.call(projDescs, function (el) {
           if (el.id.substr(9) === project) {
             el.classList.remove("noshow");
@@ -48,7 +48,7 @@ document.addEventListener("readystatechange", function (e) {
         setTimeout(function () {
           projPopup.classList.add("up");
           setTimeout(function () {
-            inTransition = false;
+            inTransition = 2;
             document.body.classList.remove("inTransition");
           }, 1000);
         }, 10);
@@ -56,13 +56,13 @@ document.addEventListener("readystatechange", function (e) {
     });
 
     projPopup.getElementsByClassName("exitbutton")[0].addEventListener("click", function (e) {
-      if (inTransition) return;
-      inTransition = true;
+      if (inTransition !== 2) return;
+      inTransition = 3;
       document.body.classList.add("inTransition");
       projPopup.classList.remove("up");
       setTimeout(function () {
         projPopup.classList.add("noshow");
-        inTransition = false;
+        inTransition = 0;
         document.body.classList.remove("inTransition");
       }, 1000);
     });
