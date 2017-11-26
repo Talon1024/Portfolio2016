@@ -21,11 +21,16 @@ document.addEventListener("readystatechange", function (e) {
     function fixProjectPopup() {
       if (inTransition > 0) {
         var vispart = function () {
-          return Array.prototype.filter.call(projPopup.childNodes, function (el) {
-            return (el.nodeType === 1 && el.classList.contains("vispart"))
-          })[0];
+          var el;
+          for (var i = 0; i < projPopup.childNodes.length; i++) {
+            el = projPopup.childNodes[i];
+            if (el.nodeType === Node.ELEMENT_NODE &&
+                el.classList.contains("vispart")) return el;
+          }
+          return null;
         }();
-        if (vispart.clientHeight > window.innerHeight) {
+        // clientHeight does not account for borders, offsetHeight does.
+        if (vispart.offsetHeight > window.innerHeight) {
           projPopup.classList.add("fixedToTop");
         } else {
           projPopup.classList.remove("fixedToTop");
