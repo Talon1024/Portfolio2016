@@ -18,6 +18,21 @@ document.addEventListener("readystatechange", function (e) {
         projPopup = document.getElementsByClassName("project-popup")[0],
         inTransition = 0; // Control transitions
 
+    function fixProjectPopup() {
+      if (inTransition > 0) {
+        var vispart = function () {
+          return Array.prototype.filter.call(projPopup.childNodes, function (el) {
+            return (el.nodeType === 1 && el.classList.contains("vispart"))
+          })[0];
+        }();
+        if (vispart.clientHeight > window.innerHeight) {
+          projPopup.classList.add("fixedToTop");
+        } else {
+          projPopup.classList.remove("fixedToTop");
+        }
+      }
+    }
+
     projSection.addEventListener('click', function (e) {
       if (inTransition !== 0) return;
 
@@ -45,6 +60,7 @@ document.addEventListener("readystatechange", function (e) {
         });
         projPopup.classList.remove("noshow");
         document.body.classList.add("inTransition");
+        fixProjectPopup();
         setTimeout(function () {
           projPopup.classList.add("up");
           setTimeout(function () {
@@ -66,5 +82,7 @@ document.addEventListener("readystatechange", function (e) {
         document.body.classList.remove("inTransition");
       }, 1000);
     });
+
+    addEventListener("resize", fixProjectPopup);
   }
 });
