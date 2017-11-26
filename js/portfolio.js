@@ -88,6 +88,8 @@ document.addEventListener("readystatechange", function (e) {
       }, 1000);
     });
 
-    addEventListener("resize", fixProjectPopup);
+    addEventListener("resize", function (e) {
+      requestAnimationFrame(fixProjectPopup);
+    });
   }
 });
